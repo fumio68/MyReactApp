@@ -15,15 +15,21 @@
   <script type="text/babel">
     (() => {
 
-      function showMessage() {
-        alert('Hello');
+      // function Counter() {
+      //   return <div>0</div>;
+      // }
+
+      function Counter(props) {
+        return <div>0 {props.color}</div>;
       }
-      
+
       const name = 'fumio';
       ReactDOM.render(
-        // <div className="box"></div>,
-        // <div style={{width:100, height:100, backgroundColor:'tomato'}}></div>,
-        <div style={{width:100, height:100, backgroundColor:'tomato'}} onClick={showMessage}></div>,
+        <div>
+          <Counter color="tomato"/>
+          <Counter color="skyblue"/>
+          <Counter color="limegreen"/>
+        </div>,
         document.getElementById('root')
       )
     })();
