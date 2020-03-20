@@ -47,8 +47,11 @@
             counters: [
               {id: 'A', count: 0, color:'tomato'},
               {id: 'B', count: 0, color:'skyblue'},
-              {id: 'C', count: 0, color:'limegreen'}
-            ]
+              {id: 'C', count: 0, color:'limegreen'},
+              {id: 'D', count: 0, color:'gray'},
+              {id: 'E', count: 0, color:'pink'}
+            ],
+            total: 0
           };
           this.countUp = this.countUp.bind(this);
         }
@@ -62,7 +65,8 @@
             }).indexOf(counter.id);
             counters[pos].count++;
             return {
-              counters:counters
+              counters:counters,
+              total: prevState.total + 1
             }
           });
         }
@@ -72,7 +76,7 @@
               <CounterList counters={this.state.counters}
               countUp={this.countUp}
               />
-              <div>TOTAL INVITATION: </div>
+              <div>TOTAL INVITATION: {this.state.total} </div>
             </div>
           )
         }
